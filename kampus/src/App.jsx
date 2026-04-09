@@ -1,24 +1,27 @@
-function Judul({ nama }){
-    return <h1>Berita {nama}</h1>
+function Nama({ nama }){
+    return <h3>Nama: {nama}</h3>
 }
 
-function Isi(){
-    return <span>Berita paling nyoss minggu ini</span>
+function Nim({ nim }){
+    return <h3>NIM: {nim} </h3>
 }
 
-function Artikel({ nama }){
+function Mhs(){
+    const mahasiswa = {
+        nama: "Rohman Wingchun",
+        nim: "A11.2012.06543"
+    }
+
     return <div>
-        <Judul nama={nama}/>
-        <Isi />
+        <Nama nama={mahasiswa.nama} />
+        <Nim nim={mahasiswa.nim}/>
     </div>
 }
 
 // function utama di file ini
 function App(){
     return <div>
-        <Artikel nama="Pertama"/>
-        <Artikel nama="Kedua"/>
-        <Artikel nama="Ketiga"/>
+        <Mhs />
     </div>
 }
 

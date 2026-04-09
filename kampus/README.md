@@ -21,6 +21,11 @@
 
 export default App;
 
-7. Latihan
+7. Latihan 1
 
 - tampilkan 3 artikel
+
+8. Latihan 2
+
+- tampilkan 3 data mahasiswa,
+  gunakan array of object
