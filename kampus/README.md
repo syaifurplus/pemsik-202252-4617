@@ -29,3 +29,29 @@ export default App;
 
 - tampilkan 3 data mahasiswa,
   gunakan array of object
+
+Install Tailwind
+
+1. npm install tailwindcss @tailwindcss/vite
+2. masukkan ke vite.config.js
+   ``
+   import tailwindcss from '@tailwindcss/vite'
+
+   export default defineConfig({
+   plugins: [
+   tailwindcss(),
+   ],
+   })
+   ``
+
+3. Buat file App.cs, masukkan
+   `  @import "tailwindcss";`
+4. Masukkan ke main.jsx
+   `  import './App.css'`
+5. Coba dengan masukkan ke App.jsx
+   ``
+   <h1 class="text-3xl font-bold underline">
+     Hello world!
+   </h1>
+
+   ``
