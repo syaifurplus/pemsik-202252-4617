@@ -1,10 +1,10 @@
-function App(){
-    return <>
-        <h1 class="text-3xl font-bold underline">
-            Hello world!
-        </h1>
-        <h1>hal;pppp</h1>
-    </>
-}
+import React from "react";
+import Login from "./Pages/Auth/Login/Login";
+import Mahasiswa from "./Pages/Admin/Mahasiswa/Mahasiswa";
+
+const App = () => {
+  // return <Login />
+  return <Mahasiswa />
+};
 
 export default App;
