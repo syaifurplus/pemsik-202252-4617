@@ -56,9 +56,9 @@ Install Tailwind
 
    ``
 
-Atomic Design
+Atomic Design = membagi komponen agar reusable
 
-Silahkan Buat semua file ini dan isi dari notion
+Silahkan Buat semua file / folder ini dan isi dari notion
 
 src/
 ├── Pages/
@@ -78,3 +78,20 @@ src/
 ├── App.css
 ├── App.jsx
 └── main.jsx
+
+Lanjutkan Halaman Admin, buat file folder dan isi dari
+notion
+
+src/
+├── Pages/
+│ └── Admin/
+│ ├──Mahasiswa/
+│ │ └── Mahasiswa.jsx
+│ ├── Components/
+│ │ ├── Sidebar.jsx
+│ │ ├── Header.jsx
+│ │ └── Footer.jsx
+│ │ └── Card.jsx (Samakan dengan Auth)
+│ │ └── Heading.jsx (Samakan dengan Auth)
+│ │ └── Button.jsx (Samakan dengan Auth)
+│ └── AdminLayout.jsx
