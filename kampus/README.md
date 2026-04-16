@@ -55,3 +55,26 @@ Install Tailwind
    </h1>
 
    ``
+
+Atomic Design
+
+Silahkan Buat semua file ini dan isi dari notion
+
+src/
+├── Pages/
+│ ├── Admin/
+│ └── Auth/
+│ ├── Login/
+│ │ └── Login.jsx
+│ ├── Components/
+│ │ ├── Button.jsx
+│ │ ├── Card.jsx
+│ │ ├── Form.jsx
+│ │ ├── Heading.jsx
+│ │ ├── Input.jsx
+│ │ ├── Label.jsx
+│ │ └── Link.jsx
+│ └── AuthLayout.jsx
+├── App.css
+├── App.jsx
+└── main.jsx
