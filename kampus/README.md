@@ -95,3 +95,20 @@ src/
 │ │ └── Heading.jsx (Samakan dengan Auth)
 │ │ └── Button.jsx (Samakan dengan Auth)
 │ └── AdminLayout.jsx
+
+===== Perkuliahan 7
+
+1. Install react router dom, untuk memberi navigasi website pakai url
+   npm install react-router-dom
+2. Masukkan main.jsx yang baru dengan penerapan router dom
+3. Sesuaikan AuthLayout.jsx agar pake outlet
+4. Sesuaikan AdminLayout.jsx agar pake outlet
+5. Buat ProtectedRoute.jsx di components milik admin
+6. Buat file dan isi di src/Data/Dummy.js
+7. Sesuaikan isian baru di file Login.jsx
+8. Sesuaikan isian baru di file Header.jsx
+9. Sesuaikan isian baru di file Sidebar.jsx
+10. Buat file baru dan isi di Admin/Dashboard/Dashboard.jsx
+11. Sesuaikan isian baru di file Mahasiswa.jsx
+12. Buat file baru dan isi di Pages/Error/PageNotFound.jsx
+13. Buat file baru dan isi di Admin/MahasiswaDetail/MahasiswaDetail.jsx
