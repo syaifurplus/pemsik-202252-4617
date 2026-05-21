@@ -112,3 +112,20 @@ src/
 11. Sesuaikan isian baru di file Mahasiswa.jsx
 12. Buat file baru dan isi di Pages/Error/PageNotFound.jsx
 13. Buat file baru dan isi di Admin/MahasiswaDetail/MahasiswaDetail.jsx
+
+==== Perkuliahan 8
+
+1. Gunakan hooks useNavigate untuk Login
+   import { useNavigate } from "react-router-dom";
+   const navigate = useNavigate();
+   navigate("/admin");
+2. Gunakan hooks useNavigate untuk Button Mahasiswa ke detial
+   import { useNavigate } from "react-router-dom";
+   const navigate = useNavigate();
+   <Button
+   onClick={() => navigate(`/admin/mahasiswa/${mhs.nim}`)}
+   > Detail
+   > </Button>
+3. Gunakan hooks useParams untuk ambil paramater di url
+   import { useParams } from "react-router-dom";
+   const { nim } = useParams();
