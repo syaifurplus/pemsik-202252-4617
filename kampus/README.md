@@ -129,3 +129,44 @@ src/
 3. Gunakan hooks useParams untuk ambil paramater di url
    import { useParams } from "react-router-dom";
    const { nim } = useParams();
+4. Gunakan hooks useState di halaman mahasiswa untuk data manipulasi
+   import { useState } from "react";
+
+   // masukkan diluar return
+   const [mahasiswa, setMahasiswa] = useState([
+   mahasiswaList
+   ]);
+
+const [form, setForm] = useState({ nim: "", nama: "" });
+
+const handleChange = (e) => {
+setForm({ ...form, [e.target.name]: e.target.value });
+};
+
+const addMahasiswa = (newData) => {
+setMahasiswa([...mahasiswa, newData]);
+};
+
+const updateMahasiswa = (nim, newData) => {
+const updated = mahasiswa.map((mhs) =>
+mhs.nim === nim ? {...mhs, ...newData} : mhs
+);
+setMahasiswa(updated);
+};
+
+const deleteMahasiswa = (nim) => {
+const filtered = mahasiswa.filter((mhs) => mhs.nim !== nim);
+setMahasiswa(filtered);
+}
+
+// rubah table agar panggil state
+
+  <tbody>
+            {mahasiswa.map((mhs, index) => (
+5. Tambahkan setelah komponen UI card untuk komponen UI modal
+6. Tambahkan function handleSubmit, state isModalOpen, state isEdit dan function openAddModal
+7. Sesuaikan komponen Input.jsx dan Label.jsx yang ada di Admin dan Auth
+8. Tambahkan / perbarui yang baru untuk function handleEdit, handleSubmbit, handleDelete
+9. Sesuaikan Button edit dan hapus agar pakai handle yang sesuai
+10. Lanjutkan dengan sesuaikan Login.jsx
+11. Terapkan hooks useEffect di Mahasiswa.jsx untuk load data langsung
