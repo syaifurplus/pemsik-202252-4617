@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+import { toastSuccess, toastError } from "@/Utils/Helpers/ToastHelpers";
+
 import Input from "@/Pages/Auth/Components/Input";
 import Label from "@/Pages/Auth/Components/Label";
 import Button from "@/Pages/Auth/Components/Button";
@@ -26,12 +28,13 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const { email, password } = form;
-
+  
     if (email === dummyUser.email && password === dummyUser.password) {
       localStorage.setItem("user", JSON.stringify(dummyUser));
+      toastSuccess("Login berhasil!");
       navigate("/admin/dashboard");
     } else {
-      alert("Email atau password salah!");
+      toastError("Email atau password salah!");
     }
   };
 
