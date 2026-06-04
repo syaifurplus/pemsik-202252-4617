@@ -170,3 +170,15 @@ setMahasiswa(filtered);
 9. Sesuaikan Button edit dan hapus agar pakai handle yang sesuai
 10. Lanjutkan dengan sesuaikan Login.jsx
 11. Terapkan hooks useEffect di Mahasiswa.jsx untuk load data langsung
+
+=== Perkuliahan 9
+
+1. Buat file file yang dibutuhkan sehingga menjadi:
+   Pages/Admin/Mahasiswa/
+   ├── Mahasiswa.jsx // Komponen utama: pusat state
+   ├── MahasiswaTable.jsx // Komponen tabel
+   └── MahasiswaModal.jsx // Komponen modal form tambah/edit
+
+2. Isi dengan ambil dari Mahasiswa.jsx untuk MahasiswaTable.jsx dan MahasiswaModal.jsx, atau bisa mengikuti dari kulino
+
+3. Sesuaikan (hapus dan tambahkan code) Mahasiswa.jsx agar menggunakan MahasiswaTable.jsx dan MahasiswaModal.jsx
