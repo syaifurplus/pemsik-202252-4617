@@ -196,3 +196,16 @@ setMahasiswa(filtered);
 5. Implementasi di Login.jsx untuk handleSubmit
 6. Implementasi di Mahasiswa.jsx untuk handleDelete dan handleSubmit
 7. Implementasi Logout di Header.jsx untuk handleLogout
+
+=== Perkuliahan 11
+
+1. Install
+   npm install json-server
+2. buat 3 file dan isi setiap filenya
+   db/mahasiswa.json
+   db.json
+   merge-json.cjs
+3. Masukkan di package.json untuk key scripts
+   "serve": "node merge-json.cjs && json-server --watch db.json --port 3001"
+4. jalankan untuk memulai backend json
+   npm run serve
