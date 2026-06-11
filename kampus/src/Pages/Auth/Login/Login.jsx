@@ -13,8 +13,11 @@ import Form from "@/Pages/Auth/Components/Form";
 
 import { login } from "@/Utils/Apis/AuthApi";
 
+import { useAuthStateContext } from "@/Utils/Contexts/AuthContext";
+
 const Login = () => {
   const navigate = useNavigate();
+  const { user, setUser } = useAuthStateContext();
 
   const [form, setForm] = useState({
     email: "",
@@ -25,15 +28,20 @@ const Login = () => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
+  // if (user) return <Navigate to="/admin" />;
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const { email, password } = form;
   
     try {
-      const user = await login(email, password);
-      localStorage.setItem("user", JSON.stringify(user));
+      const user = await login(email, password); // login = axios.get('/users?email=')
+      setUser(user); // ini akan simpan ke context + localStorage
       toastSuccess("Login berhasil");
-      navigate("/admin/dashboard");
+  
+      setTimeout(() => {
+        navigate("/admin/dashboard");
+      }, 10); // beri waktu React update context
     } catch (err) {
       toastError(err.message);
     }

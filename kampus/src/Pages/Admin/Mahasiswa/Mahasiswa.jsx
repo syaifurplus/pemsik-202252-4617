@@ -21,8 +21,10 @@ import {
   updateMahasiswa,
   deleteMahasiswa,
 } from "@/Utils/Apis/MahasiswaApi";
+import { useAuthStateContext } from "@/Utils/Contexts/AuthContext";
 
 const Mahasiswa = () => {
+  const { user } = useAuthStateContext();
   const navigate = useNavigate();
 
   const [mahasiswa, setMahasiswa] = useState([]);
@@ -96,15 +98,19 @@ const Mahasiswa = () => {
       <Card>
         <div className="flex justify-between items-center mb-4">
           <Heading as="h2" className="mb-0 text-left">Daftar Mahasiswa</Heading>
-          <Button onClick={() => openAddModal()}>+ Tambah Mahasiswa</Button>
+          {user.permission.includes("mahasiswa.create") && (
+            <Button onClick={() => openAddModal()}>+ Tambah Mahasiswa</Button>
+          )}
         </div>
 
-        <MahasiswaTable
-          data={mahasiswa}
-          onEdit={handleEdit}
-          onDelete={handleDelete}
-          onDetail={(id) => navigate(`/admin/mahasiswa/${id}`)}
-        />
+        {user.permission.includes("mahasiswa.read") && (
+          <MahasiswaTable
+            data={mahasiswa}
+            onEdit={handleEdit}
+            onDelete={handleDelete}
+            onDetail={(id) => navigate(`/admin/mahasiswa/${id}`)}
+          />
+        )}
       </Card>
 
       {isModalOpen && (

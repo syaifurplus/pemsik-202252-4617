@@ -221,3 +221,15 @@ setMahasiswa(filtered);
 12. Buat dan isi untuk login dan logout ke BE
     Utils/Apis/AuthApi.js
 13. Sesuaikan di Login.jsx
+
+=== Perkuliahan 12
+
+1. sesuaikan file user.json dengan permission dan rolenya.jangan lupa jalankan ulang server
+2. Buat file dan isi Utils/Contexts/AuthContext.jsx
+3. Registrasi AuthProvider di main.jsx . jangan lupa import dulu
+4. Sesuaikan pengisian AuthContext di Login.jsx
+5. Sesuaikan permission page di Sidebar.jsx
+6. Sesuaikan di ProtectedRoute.jsx
+7. Sesuaikan permission create untuk tombol di Mahasiswa.jsx
+8. Sesuaikan permission read untuk table di Mahasiswa.jsx
+9. Sesuaikan permission update dan delete untuk tombol di MahasiwaTable.jsx
