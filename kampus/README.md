@@ -196,3 +196,40 @@ setMahasiswa(filtered);
 5. Implementasi di Login.jsx untuk handleSubmit
 6. Implementasi di Mahasiswa.jsx untuk handleDelete dan handleSubmit
 7. Implementasi Logout di Header.jsx untuk handleLogout
+
+=== Perkuliahan 11
+
+1. Install
+   npm install json-server -g
+2. buat 3 file dan isi setiap filenya
+   db/mahasiswa.json
+   db.json
+   merge-json.cjs
+3. Masukkan di package.json untuk key scripts
+   "serve": "node merge-json.cjs && json-server --watch db.json --port 3001"
+4. jalankan untuk memulai backend json
+   npm run serve
+5. install axios, komunikasi dari FE ke BE
+   npm install axios
+6. Buat dan Isi Utils/AxiosInstance.jsx
+7. Buat dan isi file Utils/Apis/MahasiswaApi.jsx
+8. Sesuaikan di Mahasiswa.jsx agar menggunakan MahasiswaApi.jsx
+9. Sesuaikan di TableMahasiswa.jsx
+10. Sesuaikan di MahasiswaDetail.jsx
+11. Buat dan isi db json juga untuk login. jangan lupa jalankan ulang server
+    db/user.json
+12. Buat dan isi untuk login dan logout ke BE
+    Utils/Apis/AuthApi.js
+13. Sesuaikan di Login.jsx
+
+=== Perkuliahan 12
+
+1. sesuaikan file user.json dengan permission dan rolenya.jangan lupa jalankan ulang server
+2. Buat file dan isi Utils/Contexts/AuthContext.jsx
+3. Registrasi AuthProvider di main.jsx . jangan lupa import dulu
+4. Sesuaikan pengisian AuthContext di Login.jsx
+5. Sesuaikan permission page di Sidebar.jsx
+6. Sesuaikan di ProtectedRoute.jsx
+7. Sesuaikan permission create untuk tombol di Mahasiswa.jsx
+8. Sesuaikan permission read untuk table di Mahasiswa.jsx
+9. Sesuaikan permission update dan delete untuk tombol di MahasiwaTable.jsx

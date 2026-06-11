@@ -11,10 +11,13 @@ import Card from "@/Pages/Auth/Components/Card";
 import Heading from "@/Pages/Auth/Components/Heading";
 import Form from "@/Pages/Auth/Components/Form";
 
-import { dummyUser } from "@/Data/Dummy";
+import { login } from "@/Utils/Apis/AuthApi";
+
+import { useAuthStateContext } from "@/Utils/Contexts/AuthContext";
 
 const Login = () => {
   const navigate = useNavigate();
+  const { user, setUser } = useAuthStateContext();
 
   const [form, setForm] = useState({
     email: "",
@@ -25,16 +28,22 @@ const Login = () => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  // if (user) return <Navigate to="/admin" />;
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const { email, password } = form;
   
-    if (email === dummyUser.email && password === dummyUser.password) {
-      localStorage.setItem("user", JSON.stringify(dummyUser));
-      toastSuccess("Login berhasil!");
-      navigate("/admin/dashboard");
-    } else {
-      toastError("Email atau password salah!");
+    try {
+      const user = await login(email, password); // login = axios.get('/users?email=')
+      setUser(user); // ini akan simpan ke context + localStorage
+      toastSuccess("Login berhasil");
+  
+      setTimeout(() => {
+        navigate("/admin/dashboard");
+      }, 10); // beri waktu React update context
+    } catch (err) {
+      toastError(err.message);
     }
   };
 
