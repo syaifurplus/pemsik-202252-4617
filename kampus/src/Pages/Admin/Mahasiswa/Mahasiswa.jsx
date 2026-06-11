@@ -12,9 +12,15 @@ import { toastSuccess, toastError } from "@/Utils/Helpers/ToastHelpers";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-import { mahasiswaList } from "@/Data/Dummy";
 import MahasiswaTable from "./MahasiswaTable";
 import MahasiswaModal from "./MahasiswaModal";
+
+import {
+  getAllMahasiswa,
+  storeMahasiswa,
+  updateMahasiswa,
+  deleteMahasiswa,
+} from "@/Utils/Apis/MahasiswaApi";
 
 const Mahasiswa = () => {
   const navigate = useNavigate();
@@ -22,9 +28,8 @@ const Mahasiswa = () => {
   const [mahasiswa, setMahasiswa] = useState([]);
 
   const fetchMahasiswa = async () => {
-	  // bisa disimulasikan delay atau nanti diganti fetch API
-	  setMahasiswa(mahasiswaList);
-	};
+    getAllMahasiswa().then((res) => setMahasiswa(res.data));
+  };
 	
 	useEffect(() => {
 	  setTimeout(() => fetchMahasiswa(), 500);
@@ -43,22 +48,6 @@ const Mahasiswa = () => {
     setIsModalOpen(true);
     setForm({ nim: "", nama: "" });
     setIsEdit(false);
-  }
-
-  const addMahasiswa = (newData) => {
-      setMahasiswa([...mahasiswa, newData]);
-  };
-
-  const updateMahasiswa = (nim, newData) => {
-    const updated = mahasiswa.map((mhs) => 
-      mhs.nim === nim ? {...mhs, ...newData} : mhs
-    );
-    setMahasiswa(updated);
-  };
-
-  const deleteMahasiswa = (nim) => {
-    const filtered = mahasiswa.filter((mhs) => mhs.nim !== nim);
-    setMahasiswa(filtered);
   }
 
   const handleSubmit = (e) => {
@@ -82,7 +71,7 @@ const Mahasiswa = () => {
         toastError("NIM sudah terdaftar!");
         return;
       }
-      addMahasiswa(form);
+      storeMahasiswa(form);
       toastSuccess("Data berhasil ditambahkan");
       setForm({ nim: "", nama: "" });
       setIsModalOpen(false);
@@ -90,7 +79,7 @@ const Mahasiswa = () => {
   };
   
   const handleEdit = (mhs) => {
-    setForm({ nim: mhs.nim, nama: mhs.nama });
+    setForm({ id: mhs.id, nim: mhs.nim, nama: mhs.nama });
     setIsEdit(true);
     setIsModalOpen(true);
   };
@@ -114,7 +103,7 @@ const Mahasiswa = () => {
           data={mahasiswa}
           onEdit={handleEdit}
           onDelete={handleDelete}
-          onDetail={(nim) => navigate(`/admin/mahasiswa/${nim}`)}
+          onDetail={(id) => navigate(`/admin/mahasiswa/${id}`)}
         />
       </Card>
 

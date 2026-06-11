@@ -200,7 +200,7 @@ setMahasiswa(filtered);
 === Perkuliahan 11
 
 1. Install
-   npm install json-server
+   npm install json-server -g
 2. buat 3 file dan isi setiap filenya
    db/mahasiswa.json
    db.json
@@ -209,3 +209,15 @@ setMahasiswa(filtered);
    "serve": "node merge-json.cjs && json-server --watch db.json --port 3001"
 4. jalankan untuk memulai backend json
    npm run serve
+5. install axios, komunikasi dari FE ke BE
+   npm install axios
+6. Buat dan Isi Utils/AxiosInstance.jsx
+7. Buat dan isi file Utils/Apis/MahasiswaApi.jsx
+8. Sesuaikan di Mahasiswa.jsx agar menggunakan MahasiswaApi.jsx
+9. Sesuaikan di TableMahasiswa.jsx
+10. Sesuaikan di MahasiswaDetail.jsx
+11. Buat dan isi db json juga untuk login. jangan lupa jalankan ulang server
+    db/user.json
+12. Buat dan isi untuk login dan logout ke BE
+    Utils/Apis/AuthApi.js
+13. Sesuaikan di Login.jsx

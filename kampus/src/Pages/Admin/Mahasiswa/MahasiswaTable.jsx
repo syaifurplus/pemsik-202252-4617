@@ -12,15 +12,15 @@ const MahasiswaTable = ({ data = [], onEdit, onDelete, onDetail }) => {
       </thead>
       <tbody>
         {data.map((mhs, index) => (
-          <tr key={mhs.nim} className={index % 2 === 0 ? "bg-white" : "bg-gray-100"}>
+          <tr key={mhs.id} className={index % 2 === 0 ? "bg-white" : "bg-gray-100"}>
             <td className="py-2 px-4">{mhs.nim}</td>
             <td className="py-2 px-4">{mhs.nama}</td>
             <td className="py-2 px-4 text-center space-x-2">
-              <Button onClick={() => onDetail(mhs.nim)}>Detail</Button>
+              <Button onClick={() => onDetail(mhs.id)}>Detail</Button>
               <Button size="sm" variant="warning" onClick={() => onEdit(mhs)}>
                 Edit
               </Button>
-              <Button size="sm" variant="danger" onClick={() => onDelete(mhs.nim)}>
+              <Button size="sm" variant="danger" onClick={() => onDelete(mhs.id)}>
                 Hapus
               </Button>
             </td>

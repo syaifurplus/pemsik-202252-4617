@@ -11,7 +11,7 @@ import Card from "@/Pages/Auth/Components/Card";
 import Heading from "@/Pages/Auth/Components/Heading";
 import Form from "@/Pages/Auth/Components/Form";
 
-import { dummyUser } from "@/Data/Dummy";
+import { login } from "@/Utils/Apis/AuthApi";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -25,16 +25,17 @@ const Login = () => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const { email, password } = form;
   
-    if (email === dummyUser.email && password === dummyUser.password) {
-      localStorage.setItem("user", JSON.stringify(dummyUser));
-      toastSuccess("Login berhasil!");
+    try {
+      const user = await login(email, password);
+      localStorage.setItem("user", JSON.stringify(user));
+      toastSuccess("Login berhasil");
       navigate("/admin/dashboard");
-    } else {
-      toastError("Email atau password salah!");
+    } catch (err) {
+      toastError(err.message);
     }
   };
 
