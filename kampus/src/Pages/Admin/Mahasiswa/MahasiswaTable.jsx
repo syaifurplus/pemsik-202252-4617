@@ -1,5 +1,5 @@
 import Button from "@/Pages/Admin/Components/Button";
-import { useAuthStateContext } from "../../../Utils/Contexts/AuthContext";
+import { useAuthStateContext } from "@/Utils/Contexts/AuthContext";
 
 const MahasiswaTable = ({ data = [], onEdit, onDelete, onDetail }) => {
   const { user } = useAuthStateContext();
