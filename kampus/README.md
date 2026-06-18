@@ -233,3 +233,10 @@ setMahasiswa(filtered);
 7. Sesuaikan permission create untuk tombol di Mahasiswa.jsx
 8. Sesuaikan permission read untuk table di Mahasiswa.jsx
 9. Sesuaikan permission update dan delete untuk tombol di MahasiwaTable.jsx
+
+Perkuliahan 12
+
+1. Install React Query
+2. Setup di main.jsx
+3. Buat dan isi file Utils/Hooks/useMahasiswa.jsx
+4. modifikasi Mahasiswa.jsx agar menggunakan Hooks dari React Query

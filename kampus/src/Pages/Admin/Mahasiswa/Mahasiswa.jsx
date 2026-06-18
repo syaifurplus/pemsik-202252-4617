@@ -9,33 +9,46 @@ import {
 
 import { toastSuccess, toastError } from "@/Utils/Helpers/ToastHelpers";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import MahasiswaTable from "./MahasiswaTable";
 import MahasiswaModal from "./MahasiswaModal";
 
+// import {
+//   getAllMahasiswa,
+//   storeMahasiswa,
+//   updateMahasiswa,
+//   deleteMahasiswa,
+// } from "@/Utils/Apis/MahasiswaApi";
+
 import {
-  getAllMahasiswa,
-  storeMahasiswa,
-  updateMahasiswa,
-  deleteMahasiswa,
-} from "@/Utils/Apis/MahasiswaApi";
+  useMahasiswa,
+  useStoreMahasiswa,
+  useUpdateMahasiswa,
+  useDeleteMahasiswa
+} from "@/Utils/Hooks/useMahasiswa";
+
 import { useAuthStateContext } from "@/Utils/Contexts/AuthContext";
 
 const Mahasiswa = () => {
   const { user } = useAuthStateContext();
   const navigate = useNavigate();
 
-  const [mahasiswa, setMahasiswa] = useState([]);
+  const { data: mahasiswa = [] } = useMahasiswa();
+  const { mutate: store } = useStoreMahasiswa();
+  const { mutate: update } = useUpdateMahasiswa();
+  const { mutate: remove } = useDeleteMahasiswa();
 
-  const fetchMahasiswa = async () => {
-    getAllMahasiswa().then((res) => setMahasiswa(res.data));
-  };
+  // const [mahasiswa, setMahasiswa] = useState([]);
+
+  // const fetchMahasiswa = async () => {
+  //   getAllMahasiswa().then((res) => setMahasiswa(res.data));
+  // };
 	
-	useEffect(() => {
-	  setTimeout(() => fetchMahasiswa(), 500);
-	}, []);
+	// useEffect(() => {
+	//   setTimeout(() => fetchMahasiswa(), 500);
+	// }, []);
 
   const [form, setForm] = useState({ nim: "", nama: "" });
 
@@ -61,7 +74,7 @@ const Mahasiswa = () => {
   
     if (isEdit) {
       confirmUpdate(() => {
-        updateMahasiswa(form.nim, form);
+        update({ id: form.id, data: form });
         toastSuccess("Data berhasil diperbarui");
         setForm({ nim: "", nama: "" });
         setIsEdit(false);
@@ -73,7 +86,7 @@ const Mahasiswa = () => {
         toastError("NIM sudah terdaftar!");
         return;
       }
-      storeMahasiswa(form);
+      store(form);
       toastSuccess("Data berhasil ditambahkan");
       setForm({ nim: "", nama: "" });
       setIsModalOpen(false);
@@ -88,7 +101,7 @@ const Mahasiswa = () => {
 
   const handleDelete = (nim) => {
     confirmDelete(() => {
-      deleteMahasiswa(nim);
+      remove(nim);
       toastSuccess("Data berhasil dihapus");
     });
   };
