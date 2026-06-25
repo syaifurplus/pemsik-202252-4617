@@ -17,6 +17,7 @@ import PageNotFound from "@/Pages/Error/PageNotFound";
 
 import { AuthProvider } from "@/Utils/Contexts/AuthContext";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import RencanaStudi from "@/Pages/Admin/RencanaStudi/RencanaStudi";
 
 const router = createBrowserRouter([
   {
@@ -44,6 +45,10 @@ const router = createBrowserRouter([
       {
         path: "dashboard",
         element: <Dashboard />,
+      },
+      {
+        path: "rencana-studi",
+        element: <RencanaStudi />,
       },
       {
         path: "mahasiswa",

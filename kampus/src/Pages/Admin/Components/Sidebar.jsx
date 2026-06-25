@@ -36,6 +36,12 @@ const Sidebar = () => {
             <span className="menu-text hidden lg:inline">Mahasiswa</span>
           </NavLink>
         )}
+        {user.permission.includes("rencana-studi.page") && (
+          <NavLink to="/admin/rencana-studi" className="...">
+            <span>📚</span>
+            <span className="menu-text hidden lg:inline">Rencana Studi</span>
+          </NavLink>
+        )}
       </nav>
     </aside>
   );

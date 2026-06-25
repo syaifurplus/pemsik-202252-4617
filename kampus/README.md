@@ -256,3 +256,10 @@ Perkuliahan 13
 9. Tambahkan setelah panggil komponen table
    Tombol Pagination
 10. Tambahkan isLoading di props komponen table
+
+Perkuliahan 14
+
+1. Buat dan isi json data untuk dosen, mata-kuliah, mahasiswa (update), kelas, user(update)
+2. Buat dan isi komponen Select.jsx
+3. Buat dan isi Api untuk untuk DosenApi, MataKuliahApi, KelasApi
+4. Tambahkan menu rencana studi di sidebar
